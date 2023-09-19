@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
-import { IconButton, Select, MenuItem, ListItemIcon, Avatar, Divider, Box } from '@mui/material';
+import { IconButton, Select, MenuItem, ListItemIcon, Avatar, Divider, Box, Badge } from '@mui/material';
 import { ShoppingCartOutlined } from '@mui/icons-material';
 import Image from 'next/image';
+import useUserStore from '@/store/user.store';
+import languageOptions from '@/constants/language';
 
 const Actions = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState('EN'); 
+  const [selectedLanguage, setSelectedLanguage] = useState('EN');
+  const { cart } = useUserStore();
 
   const handleChange = (event: any) => {
     setSelectedLanguage(event.target.value);
   };
-
-  const languageOptions = [
-    {  flag: 'us', value: 'EN' },
-    { flag: 'es', value: 'ES' },
-    { flag: 'fr', value: 'FR' },
-  ];
 
   return (
     <div style={{ display: 'flex', gap: '1rem' }}>
@@ -29,7 +26,7 @@ const Actions = () => {
         {languageOptions.map((option) => (
           <MenuItem key={option.value} value={option.value}>
             <ListItemIcon>
-              <Image 
+              <Image
                 src={`https://flagcdn.com/w20/${option.flag}.png`}
                 alt={option.value}
                 width={20}
@@ -42,7 +39,9 @@ const Actions = () => {
       </Select>
       <Box display="flex" alignItems="center">
         <IconButton size='small' color="inherit">
-          <ShoppingCartOutlined />
+          <Badge badgeContent={cart.length} color="error">
+            <ShoppingCartOutlined />
+          </Badge>
         </IconButton>
       </Box>
       <Divider orientation="vertical" flexItem />
