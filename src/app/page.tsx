@@ -3,9 +3,10 @@
 import Filter from "@/components/Filter";
 import { Box, Typography } from "@mui/material";
 import Card from '@/components/Card';
+import useProductStort from "@/store/product.store";
 
 const Home = () => {
-  const data = JSON.parse(localStorage.getItem("products"));
+  const { filteredProducts } = useProductStort();
   return (
     <Box sx={{
       padding: '2rem',
@@ -17,7 +18,7 @@ const Home = () => {
       <Box>
         <Box sx={{ padding: "1rem 0" }}>
           <Typography variant="h5">
-            Result : {data.length} items
+            Result : {filteredProducts.length} items
           </Typography>
         </Box>
         <Box sx={{
@@ -29,7 +30,7 @@ const Home = () => {
           alignItems: 'start'
         }}>
 
-          {JSON.parse(localStorage.getItem("products"))?.map((product, index) => (
+          {filteredProducts.map((product, index) => (
             <Card key={index} {...product} />
           ))}
         </Box>

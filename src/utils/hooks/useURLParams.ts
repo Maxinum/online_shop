@@ -12,7 +12,9 @@ const useURLParams = () => {
     const searchParams = new URLSearchParams();
 
     for (const paramKey in newParams) {
-      searchParams.set(paramKey, newParams[paramKey]);
+      if (newParams[paramKey] !== "") {
+        searchParams.set(paramKey, newParams[paramKey]);
+      }
     }
 
     const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
@@ -27,7 +29,6 @@ const useURLParams = () => {
     return urlParams[key];
   };
 
-
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
     const params: UrlParams = {};
@@ -41,7 +42,7 @@ const useURLParams = () => {
 
   return {
     set,
-    get
+    get,
   };
 };
 

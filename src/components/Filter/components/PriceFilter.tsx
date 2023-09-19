@@ -1,8 +1,9 @@
 'use client'
 
 import { Slider, Box, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import useUrlParams from '@/utils/hooks/useURLParams';
+import useProductStort from '@/store/product.store';
 
 const marks = [
     {
@@ -16,8 +17,13 @@ const marks = [
 ];
 
 const PriceFilter = () => {
+    const { filterProducts } = useProductStort();
     const [sliderValue, setSliderValue] = useState<number>(70);
-    const { set } = useUrlParams();
+    const { set, get } = useUrlParams();
+    const maxPrice = get("maxPrice") as string;
+    const types = get("type") as string;
+    const suppliers = get("supplier type") as string;
+    const search = get("search") as string;
 
     const handleSliderChange = (_: Event, newValue: number | number[]) => {
         if (typeof newValue === 'number') {
@@ -25,8 +31,16 @@ const PriceFilter = () => {
         }
     };
 
-    const handleSliderChangeCommitted = (_: Event, newValue: string) => {
-        set('maxPrice', newValue);
+
+    useEffect(() => {
+        filterProducts(types, suppliers, maxPrice, search);
+    }, [types, suppliers, search, maxPrice, filterProducts])
+
+
+    const handleSliderChangeCommitted = (_: React.SyntheticEvent | Event, value: number | number[]) => {
+        if(typeof value ==='number'){
+            set('maxPrice', String(value));
+        }
     };
 
     return (
@@ -35,7 +49,6 @@ const PriceFilter = () => {
                 Min Order
             </Typography>
             <Slider
-                color="warning"
                 value={sliderValue}
                 onChange={handleSliderChange}
                 onChangeCommitted={handleSliderChangeCommitted}
