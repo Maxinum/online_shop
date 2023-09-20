@@ -1,7 +1,6 @@
 'use client'
 
-import { InputBase, Button, Divider } from '@mui/material';
-import LocationSelect from './LocationSelect';
+import { InputBase, Button } from '@mui/material';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { useState, useEffect } from 'react';
 import useURLParams from '@/utils/hooks/useURLParams';
@@ -32,7 +31,7 @@ const Search = () => {
 
     return (
         <div style={{
-            width: '60%',
+            width: '50%',
             height: '50%',
             border: '1px solid #e6e6e6',
             display: 'flex',
@@ -41,11 +40,10 @@ const Search = () => {
             overflow: 'hidden',
             justifyContent: 'space-between',
         }}>
-            <LocationSelect />
-            <Divider orientation="vertical" flexItem />
             <InputBase value={searchText}
                 onChange={handleSearchInputChange}
-                placeholder="Search" sx={{
+                placeholder="Search..." sx={{
+                    paddingLeft: '2rem',
                     width: '60%'
                 }} />
             <Button
@@ -53,7 +51,8 @@ const Search = () => {
                 startIcon={<SearchOutlinedIcon />}
                 sx={{ borderRadius: '40px' }}
                 variant='contained'
-                color='warning'>
+                color='warning'
+            >
                 Search
             </Button>
         </div>

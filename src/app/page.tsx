@@ -4,32 +4,21 @@ import Filter from "@/components/Filter";
 import { Box, Typography } from "@mui/material";
 import Card from '@/components/Card';
 import useProductStort from "@/store/product.store";
+import classes from './home.module.css';
 
 const Home = () => {
   const { filteredProducts } = useProductStort();
+
   return (
-    <Box sx={{
-      padding: '2rem',
-      boxSizing: 'border-box',
-      display: 'flex',
-      justifyContent: 'space-between'
-    }}>
+    <Box className={classes.page}>
       <Filter />
       <Box>
-        <Box sx={{ padding: "1rem 0" }}>
+        <Box padding="1rem 0">
           <Typography variant="h5">
             Result : {filteredProducts.length} items
           </Typography>
         </Box>
-        <Box sx={{
-          width: '70vw',
-          gap: '1rem',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          justifyContent: 'space-between',
-          alignItems: 'start'
-        }}>
-
+        <Box className={classes.productsContainer}>
           {filteredProducts.map((product, index) => (
             <Card key={index} {...product} />
           ))}

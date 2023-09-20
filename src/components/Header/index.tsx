@@ -4,6 +4,7 @@ import React from 'react';
 import { AppBar, Toolbar, Typography } from '@mui/material';
 import Search from './components/Search';
 import Actions from './components/Actions';
+import Link from 'next/link';
 
 const Header = () => {
     return (
@@ -12,7 +13,9 @@ const Header = () => {
                 display: 'flex',
                 justifyContent: 'space-between',
             }}>
-                <Typography variant="h6">Your Logo</Typography>
+                <Link href={`/`}>
+                    <Typography variant="h6">Your Logo</Typography>
+                </Link>
                 <Search />
                 <Actions />
             </Toolbar>

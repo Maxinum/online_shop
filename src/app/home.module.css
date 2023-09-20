@@ -1,0 +1,15 @@
+.page {
+    padding: 2rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+
+.productsContainer {
+    width: 70vw;
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-between;
+    align-items: start;
+}

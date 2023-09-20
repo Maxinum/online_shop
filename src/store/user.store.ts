@@ -7,7 +7,7 @@ interface StoreState {
   }[];
   setCart: (id: number, qty: number) => void;
   updateCart: (id: number, qty: number) => void;
-  removeFromCart: (id: number) => void;
+  clearCart: () => void;
 }
 
 const useUserStore = create<StoreState>((set) => ({
@@ -18,7 +18,8 @@ const useUserStore = create<StoreState>((set) => ({
       const index = updatedCart.findIndex((item) => item.id === id);
 
       if (index !== -1) {
-        updatedCart[index].qty += qty;
+        const updatedCart = state.cart.filter((item) => item.id !== id);
+        return { cart: updatedCart };
       } else {
         updatedCart.push({ id, qty });
       }
@@ -30,18 +31,17 @@ const useUserStore = create<StoreState>((set) => ({
     set((state) => {
       const updatedCart = [...state.cart];
       const index = updatedCart.findIndex((item) => item.id === id);
-
+      console.log(index);
       if (index !== -1) {
         updatedCart[index].qty = qty;
       }
-
+      console.log(updatedCart);
       return { cart: updatedCart };
     });
   },
-  removeFromCart: (id) => {
-    set((state) => {
-      const updatedCart = state.cart.filter((item) => item.id !== id);
-      return { cart: updatedCart };
+  clearCart: () => {
+    set(() => {
+      return { cart: [] };
     });
   },
 }));

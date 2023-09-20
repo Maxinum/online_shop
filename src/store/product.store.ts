@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-interface Product {
+export interface IProduct {
   id: number;
   name: string;
   price: number;
@@ -14,8 +14,8 @@ interface Product {
 }
 
 interface StoreState {
-  products: Product[];
-  filteredProducts: Product[];
+  products: IProduct[];
+  filteredProducts: IProduct[];
   filterProducts: (
     type?: string,
     supplier?: string,

@@ -18,7 +18,7 @@ const marks = [
 
 const PriceFilter = () => {
     const { filterProducts } = useProductStort();
-    const [sliderValue, setSliderValue] = useState<number>(70);
+    const [sliderValue, setSliderValue] = useState<number>(1000);
     const { set, get } = useUrlParams();
     const maxPrice = get("maxPrice") as string;
     const types = get("type") as string;
