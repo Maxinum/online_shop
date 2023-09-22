@@ -3,6 +3,7 @@ import PaymentLoader from "./PaymentLoader";
 import { useState } from "react";
 import Months from "@/constants/month";
 import years from "@/constants/years";
+import classes from '../cart.module.css'
 
 const CreditCard = () => {
     const [paymentSucc, setPaymentSucc] = useState(false);
@@ -74,8 +75,8 @@ const CreditCard = () => {
     return (
         <Box display="flex" flexDirection="column" gap="1rem">
             <Box>
-                <Box display="flex" gap="1rem">
-                    <Box width="50%">
+                <Box className={classes.InputBody} display="flex" gap="1rem">
+                    <Box className={classes.InputBox}>
                         <InputLabel htmlFor="name">Card Name</InputLabel>
                         <TextField
                             id="name"
@@ -89,7 +90,7 @@ const CreditCard = () => {
                             <FormHelperText error>{`Card Name can't be empty`}</FormHelperText>
                         )}
                     </Box>
-                    <Box width="50%">
+                    <Box className={classes.InputBox}>
                         <InputLabel htmlFor="card">Card Number</InputLabel>
                         <TextField
                             id="card"
@@ -104,8 +105,8 @@ const CreditCard = () => {
                         )}
                     </Box>
                 </Box>
-                <Box display="flex" gap="1rem">
-                    <Box width="50%">
+                <Box className={classes.InputBody} display="flex" gap="1rem">
+                    <Box className={classes.InputBox}>
                         <InputLabel htmlFor="month">Month</InputLabel>
                         <Select
                             id="month"
@@ -130,7 +131,7 @@ const CreditCard = () => {
                             <FormHelperText error>{`Month can't be empty`}</FormHelperText>
                         )}
                     </Box>
-                    <Box width="50%">
+                    <Box className={classes.InputBox} >
                         <InputLabel htmlFor="years">Years</InputLabel>
                         <Select
                             id="years"
@@ -155,7 +156,7 @@ const CreditCard = () => {
                             <FormHelperText error>{`Year can't be empty`}</FormHelperText>
                         )}
                     </Box>
-                    <Box width="50%">
+                    <Box className={classes.InputBox} >
                         <InputLabel htmlFor="cvv">CVV</InputLabel>
                         <TextField
                             id="cvv"

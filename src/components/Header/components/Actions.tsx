@@ -7,13 +7,14 @@ import useUserStore from '@/store/user.store';
 import languageOptions from '@/constants/language';
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
 import CartModal from './CartModal';
+import classes from '../header.module.css';
 
 const Actions = () => {
   const [selectedLanguage, setSelectedLanguage] = useState('EN');
   const { cart } = useUserStore();
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null); 
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
-  const handleLanguageClick = (event: React.MouseEvent<HTMLElement>) => { 
+  const handleLanguageClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -21,7 +22,7 @@ const Actions = () => {
 
   const open = Boolean(anchorEl);
 
-  const handleChange = (event: SelectChangeEvent<string>) => { 
+  const handleChange = (event: SelectChangeEvent<string>) => {
     setSelectedLanguage(event.target.value as string);
   };
 
@@ -55,14 +56,14 @@ const Actions = () => {
             <ShoppingCartOutlined />
           </Badge>
         </IconButton>
-        <IconButton size='small' color="inherit">
+        <IconButton className="onlyPC" size='small' color="inherit">
           <EmailOutlinedIcon />
         </IconButton>
-        <IconButton size='small' color="inherit">
+        <IconButton className="onlyPC" size='small' color="inherit">
           <NotificationsOutlinedIcon />
         </IconButton>
       </Box>
-      <CartModal open={open} handleClose={handleClose} anchorEl={anchorEl} /> 
+      <CartModal open={open} handleClose={handleClose} anchorEl={anchorEl} />
       <Divider orientation="vertical" flexItem />
       <Box display="flex" alignItems="center">
         <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />

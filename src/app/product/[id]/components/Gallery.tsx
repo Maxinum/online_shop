@@ -23,9 +23,12 @@ const Gallery = ({ images }: { images: string[] }) => {
                 alt="product"
                 width={375}
                 height={375}
+                layout="responsive"
+                objectFit="cover"
                 style={{
                     border: secondaryBorder,
-                    borderRadius: "5px"
+                    borderRadius: "5px",
+                    aspectRatio: "1 / 1"
                 }}
             />
             <Box sx={{
@@ -38,7 +41,11 @@ const Gallery = ({ images }: { images: string[] }) => {
                         style={{
                             border: selectedImg === index ? primaryBorder : secondaryBorder,
                             borderRadius: '5px',
-                            cursor: 'pointer'
+                            cursor: 'pointer',
+                            maxWidth: '80px',
+                            maxHeight: '80px',
+                            width: 'calc(100% / 5)',
+                            aspectRatio: '1 / 1'
                         }}
                         src={image}
                         onClick={() => handleChoose(index)}

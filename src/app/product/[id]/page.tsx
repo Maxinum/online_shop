@@ -1,6 +1,6 @@
 'use client'
 import useProductStore from "@/store/product.store";
-import { Box } from '@mui/material'
+import Box from '@mui/material/Box'
 import Gallery from "./components/Gallery";
 import SalesBlock from "./components/SalesBlock";
 import ProductDetails from "./components/ProductDetails";

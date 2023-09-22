@@ -28,7 +28,7 @@ const useProductStort = create<StoreState>((set) => ({
   products: [
     {
       id: 1,
-      name: "Laptop Lenovo V15 G3 /15.6'', FHD/ Core I3, 1215U/ 8GB/ SSD 512GB/ DOS/ (82TT003SRU)",
+      name: "Laptop Lenovo V15",
       price: 900,
       oldPrice: 1914,
       "supplier type": "Verfied Suppliers",
@@ -41,12 +41,12 @@ const useProductStort = create<StoreState>((set) => ({
         "https://volt.kz/upload/resize_cache/iblock/1034/65//450_450_140cd750bba9870f18aada2478b24840a/product_image_45265_191275.jpg",
         "https://volt.kz/upload/resize_cache/iblock/1034/65//450_450_140cd750bba9870f18aada2478b24840a/product_image_45265_191276.jpg",
         "https://volt.kz/upload/resize_cache/iblock/1034/65//450_450_140cd750bba9870f18aada2478b24840a/product_image_45265_191277.jpg",
-        "https://forcecom.kz/upload/iblock/e84/5risvnddu9qc1cgvfyjecaa44dm62cn7.jpg",
+        "https://volt.kz/upload/resize_cache/iblock/1034/41//450_450_140cd750bba9870f18aada2478b24840a/product_image_27241_57820.jpg",
       ],
     },
     {
       id: 2,
-      name: "Laptop Lenovo V15 G3 /15.6'', FHD/ Core I3, 1215U/ 8GB/ SSD 512GB/ DOS/ (82TT003SRU)",
+      name: "Laptop Lenovo V15 G3",
       price: 753,
       oldPrice: 1914,
       rating: "5.0",
@@ -59,7 +59,7 @@ const useProductStort = create<StoreState>((set) => ({
         "https://volt.kz/upload/resize_cache/iblock/1034/65//450_450_140cd750bba9870f18aada2478b24840a/product_image_45265_191275.jpg",
         "https://volt.kz/upload/resize_cache/iblock/1034/65//450_450_140cd750bba9870f18aada2478b24840a/product_image_45265_191276.jpg",
         "https://volt.kz/upload/resize_cache/iblock/1034/65//450_450_140cd750bba9870f18aada2478b24840a/product_image_45265_191277.jpg",
-        "https://forcecom.kz/upload/iblock/e84/5risvnddu9qc1cgvfyjecaa44dm62cn7.jpg",
+        "https://volt.kz/upload/resize_cache/iblock/1034/41//450_450_140cd750bba9870f18aada2478b24840a/product_image_27241_57820.jpg",
       ],
     },
   ],

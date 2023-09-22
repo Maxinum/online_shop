@@ -1,20 +1,18 @@
 'use client'
 
-import { InputBase, Button } from '@mui/material';
+import { InputBase, Button,Box } from '@mui/material';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { useState, useEffect } from 'react';
 import useURLParams from '@/utils/hooks/useURLParams';
 import useProductStort from '@/store/product.store';
+import classes from '../header.module.css';
 
 const Search = () => {
     const { filterProducts } = useProductStort()
     const [searchText, setSearchText] = useState("")
-    const { set, get } = useURLParams();
+    const { set, getAll } = useURLParams();
 
-    const maxPrice = get("maxPrice") as string;
-    const types = get("type") as string;
-    const suppliers = get("supplier type") as string;
-    const search = get("search") as string;
+    const { maxPrice, types, suppliers, search } = getAll();
 
     const onHandleSearch = () => {
         set("search", searchText);
@@ -30,16 +28,7 @@ const Search = () => {
 
 
     return (
-        <div style={{
-            width: '50%',
-            height: '50%',
-            border: '1px solid #e6e6e6',
-            display: 'flex',
-            alignItems: 'center',
-            borderRadius: '40px',
-            overflow: 'hidden',
-            justifyContent: 'space-between',
-        }}>
+        <Box className={classes.Search}>
             <InputBase value={searchText}
                 onChange={handleSearchInputChange}
                 placeholder="Search..." sx={{
@@ -55,7 +44,7 @@ const Search = () => {
             >
                 Search
             </Button>
-        </div>
+        </Box>
     )
 }
 

@@ -3,6 +3,7 @@
     padding: 2rem;
     gap: 1rem;
     box-sizing: border-box;
+    min-height: 92vh;
 }
 
 .productDetails {
@@ -10,7 +11,6 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-
 }
 
 .salesBlock {
@@ -23,4 +23,37 @@
     gap: 1rem;
     padding: 1rem;
     box-sizing: border-box;
+}
+
+.PriceBlock >button {
+    display: none;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+}
+
+@media only screen and (max-width: 767px) {
+    .page {
+        flex-direction: column;
+        padding:1rem;
+    }
+
+    .productDetails {
+        width: 100%;
+    }
+
+    .salesBlock {
+        display: none;
+    }
+
+    .PriceBlock {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .PriceBlock button {
+        display: block;
+    }
 }

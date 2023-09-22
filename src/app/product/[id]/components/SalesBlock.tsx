@@ -16,7 +16,7 @@ const SalesBlock = ({ id, price }: IProduct) => {
 
     return (
         <Box className={classes.salesBlock}>
-            <Box display="flex" flexDirection="column" gap="1rem">
+            <Box className={classes.PriceBlock}>
                 <Typography>Text</Typography>
                 <Stepper
                     step={step}
@@ -30,9 +30,9 @@ const SalesBlock = ({ id, price }: IProduct) => {
                         {step} x ${price}
                     </Typography>
                 </Box>
+                <Divider />
             </Box>
             <Box display="flex" flexDirection="column" gap="1rem">
-                <Divider />
                 <Box display="flex" justifyContent="space-between" >
                     <Typography variant="body1">
                         Total

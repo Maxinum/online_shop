@@ -49,10 +49,10 @@ const CartModal = ({ open, anchorEl, handleClose }: ICart) => {
                             const { name, images, price } = products.filter(p => p.id === item.id)[0];
                             total += price * item.qty;
                             return <Box
+                                key={item.id}
                                 borderTop="1px solid #e6e6e6"
                                 borderBottom="1px solid #e6e6e6"
                                 padding="0.5rem"
-                                key={item.id}
                                 display="flex"
                                 alignItems="center"
                                 justifyContent="space-between"
@@ -75,7 +75,13 @@ const CartModal = ({ open, anchorEl, handleClose }: ICart) => {
                         <Typography>${total}</Typography>
                     </Box>
                     <Link href={`/cart`}>
-                        <Button variant="outlined" disabled={cart.length === 0} fullWidth>Order Now</Button>
+                        <Button
+                            variant="outlined"
+                            disabled={cart.length === 0}
+                            color="warning"
+                            fullWidth>
+                            Order Now
+                        </Button>
                     </Link>
                 </Box>
             </Box>

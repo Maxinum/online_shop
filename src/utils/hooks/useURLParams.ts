@@ -4,6 +4,13 @@ type UrlParams = {
   [key: string]: string;
 };
 
+type URLParamsResult = {
+  maxPrice: string;
+  types: string;
+  suppliers: string;
+  search: string;
+};
+
 const useURLParams = () => {
   const [urlParams, setUrlParams] = useState<UrlParams>({});
 
@@ -22,11 +29,17 @@ const useURLParams = () => {
     setUrlParams(newParams);
   };
 
-  const get = (key?: string) => {
-    if (!key) {
-      return urlParams;
-    }
+  const get = (key: string) => {
     return urlParams[key];
+  };
+
+  const getAll = (): URLParamsResult => {
+    return {
+      maxPrice: urlParams["maxPrice"],
+      types: urlParams["type"],
+      suppliers: urlParams["supplier type"],
+      search: urlParams["search"],
+    };
   };
 
   useEffect(() => {
@@ -42,6 +55,7 @@ const useURLParams = () => {
 
   return {
     set,
+    getAll,
     get,
   };
 };

@@ -19,11 +19,8 @@ const marks = [
 const PriceFilter = () => {
     const { filterProducts } = useProductStort();
     const [sliderValue, setSliderValue] = useState<number>(1000);
-    const { set, get } = useUrlParams();
-    const maxPrice = get("maxPrice") as string;
-    const types = get("type") as string;
-    const suppliers = get("supplier type") as string;
-    const search = get("search") as string;
+    const { set, getAll } = useUrlParams();
+    const { maxPrice, types, suppliers, search } = getAll();
 
     const handleSliderChange = (_: Event, newValue: number | number[]) => {
         if (typeof newValue === 'number') {
@@ -31,14 +28,13 @@ const PriceFilter = () => {
         }
     };
 
-
     useEffect(() => {
         filterProducts(types, suppliers, maxPrice, search);
     }, [types, suppliers, search, maxPrice, filterProducts])
 
 
     const handleSliderChangeCommitted = (_: React.SyntheticEvent | Event, value: number | number[]) => {
-        if(typeof value ==='number'){
+        if (typeof value === 'number') {
             set('maxPrice', String(value));
         }
     };
